@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Like from "./SolutionLikeComponent/like";
-import { genres } from "./../service/fakeGenreService";
 
 const MoviesTable = (props) => {
   const { movies, onDelete, onLike, onSort } = props;
