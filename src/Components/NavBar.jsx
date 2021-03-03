@@ -1,17 +1,14 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
-import "./HomePage.css";
-import Customers from "./Customers";
-import Rentals from "./rentals";
+import { NavLink, Link } from "react-router-dom";
 
 class NavBar extends Component {
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
-          <NavLink className="navbar-brand" to="/">
+          <Link className="navbar-brand" to="/">
             React Application
-          </NavLink>
+          </Link>
           {/* <h1 style={{float:"left"}}>Clicked:{this.props.countValue}</h1> */}
           <button
             className="navbar-toggler"
@@ -26,14 +23,17 @@ class NavBar extends Component {
           </button>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav">
-              <NavLink className="nav-link " aria-current="page" to="movies">
+              <NavLink className="nav-link " aria-current="page" to="/movies">
                 Movies
               </NavLink>
-              <NavLink className="nav-link" to="customers">
+              <NavLink className="nav-link" to="/customers">
                 Customers
               </NavLink>
-              <NavLink className="nav-link" to="rentals">
+              <NavLink className="nav-link" to="/rentals">
                 Rentals
+              </NavLink>
+              <NavLink className="nav-item nav-link" to="/login">
+                Login
               </NavLink>
             </div>
           </div>

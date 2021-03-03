@@ -1,15 +1,12 @@
 // import logo from './logo.svg';
-import "./App.css";
+
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "font-awesome/css/font-awesome.css";
-import NavBar from "./Components/NavBar";
+
 // import MountingPhase from "./Components/MountingPhase";
- //import ExerciseDecrementButtonParent from "./Components/ExerciseDecrementButtonParent";
+//import ExerciseDecrementButtonParent from "./Components/ExerciseDecrementButtonParent";
 // import Like from "./Components/SolutionLikeComponent/like";
-
- import { Route, Switch, Router, Redirect } from "react-router-dom";
-
 // import PassingDatatoComponentsParent from "./Components/PassingDatatoComponentsParent";
 // import RaisingandHandlingEventsParent from "./Components/RaisingandHandlingEventsParent";
 // import UpdatingStateParent from "./Components/UpdatingtheStateParent";
@@ -26,17 +23,20 @@ import NavBar from "./Components/NavBar";
 // import Task from './Components/task';
 // import WhatHappensWhenStateChanges from "./Components/WhatHappensWhenStateChanges";
 // import PassingEventArguments from "./Components/PassingEventArguments";
- import Movies from "./Components/Movies";
- import Customers from "./Components/Customers";
 
 // import SingleSourceofTruthParent from "./Components/SingleSourceofTruthParent";
- //import RemovingtheLocalStateParent from "./Components/RemovingtheLocalStateParent";
+//import RemovingtheLocalStateParent from "./Components/RemovingtheLocalStateParent";
 // import LiftingtheStateUpParent from "./Components/LiftingtheStateUpParent";
 // import StatelessFunctionalComponents from  "./StatelessFunctionalComponents"
-
+import { Route, Switch, Router, Redirect } from "react-router-dom";
+import NavBar from "./Components/NavBar";
+import Movies from "./Components/Movies";
+import Customers from "./Components/Customers";
 import Rentals from "./Components/rentals";
 import NotFound from "./Components/notFound";
-
+import MovieForm from "./Components/movieForm";
+import LoginForm from "./Components/loginform";
+import "./App.css";
 
 class App extends Component {
   // state = {
@@ -158,7 +158,7 @@ class App extends Component {
               counters={this.state.counters}
               onDecrement={this.handleDecrement}
             /> */}
-      
+
             {/* <h1>Hello Wrold</h1> */}
             {/* <Person />
 
@@ -202,6 +202,10 @@ class App extends Component {
             {/* Adding react Router*/}
             <Switch>
               {/* <Router> */}
+
+              <Route path="/login" component={LoginForm}></Route>
+
+              <Route path="/movies/:id" component={MovieForm} />
               <Route path="/movies" component={Movies}></Route>
               <Route path="/customers" component={Customers}></Route>
               <Route path="/rentals" component={Rentals}></Route>
@@ -210,7 +214,6 @@ class App extends Component {
               <Redirect from="/" exact to="/movies" />
               <Redirect to="/not-found" />
             </Switch>
-
             {/* </Router> */}
           </main>
         </React.Fragment>
