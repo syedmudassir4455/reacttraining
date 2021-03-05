@@ -1,32 +1,57 @@
 import React, { Component } from "react";
+import Input from "./Input";
+import Joi from "joi-browser";
+import Form from "./Form"
 
-class LoginForm extends Component {
+class LoginForm extends Form {
+  state = {
+    data: { username: "", password: "" },
+    errors: {},
+  };
 
-    username = React.createRef();
+  schema = {
+    username: Joi.string().required().label("Username"),
+    password: Joi.string().required().label("Password"),
+  };
 
-    // componentDidMount(){
-    //   this.username.current.focus();
-    // }
+  // username = React.createRef();
+  // componentDidMount(){
+  //   this.username.current.focus();
+  // }
 
-    handleSubmit = e =>{
-        e.preventDefault(0);
-        const username = this.username.current.value;
-        console.log("Submitted");
-    }
+
+ 
+  doSubmit = () => {
+    //call the server
+    console.log("Submitted");
+  };
+
   render() {
+    const { data, errors } = this.state;
     return (
       <div className="col-4">
         <h1> Login form </h1>
         <form onSubmit={this.handleSubmit}>
-          <div className="from-group">
-            <label htmlfor="username">UserName</label>
-            <input autoFocus ref ={this.username} id="username" type="text" className="form-control"></input>
-          </div>
-          <div className="form-group">
-            <label htmlfor="password">Password</label>
-            <input id="password" type="password" className="form-control"></input>
-          </div>
-          <button className="btn btn-primary">Login</button>
+          <Input
+            ref={this.username}
+            autoFocus
+            name="username"
+            value={data.username}
+            onChange={this.handleChange}
+            label="UserName"
+            errors={errors.username}
+          />
+
+          <Input
+            name="password"
+            value={data.password}
+            onChange={this.handleChange}
+            label="Password"
+            errors={errors.password}
+          />
+          <button disabled={this.validate()} className="btn btn-primary">
+            Login
+          </button>
         </form>
       </div>
     );
