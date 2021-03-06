@@ -28,7 +28,7 @@ import "font-awesome/css/font-awesome.css";
 //import RemovingtheLocalStateParent from "./Components/RemovingtheLocalStateParent";
 // import LiftingtheStateUpParent from "./Components/LiftingtheStateUpParent";
 // import StatelessFunctionalComponents from  "./StatelessFunctionalComponents"
-import { Route, Switch, Router, Redirect } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import NavBar from "./Components/NavBar";
 import Movies from "./Components/Movies";
 import Customers from "./Components/Customers";
@@ -36,7 +36,9 @@ import Rentals from "./Components/rentals";
 import NotFound from "./Components/notFound";
 import MovieForm from "./Components/movieForm";
 import LoginForm from "./Components/loginform";
+import Register from "./Components/Register";
 import "./App.css";
+
 
 class App extends Component {
   // state = {
@@ -204,7 +206,7 @@ class App extends Component {
               {/* <Router> */}
 
               <Route path="/login" component={LoginForm}></Route>
-
+              <Route path="/register" component={Register}></Route>
               <Route path="/movies/:id" component={MovieForm} />
               <Route path="/movies" component={Movies}></Route>
               <Route path="/customers" component={Customers}></Route>
